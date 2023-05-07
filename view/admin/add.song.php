@@ -1,7 +1,3 @@
-<?php
-include("service/genreDAO.php");
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
