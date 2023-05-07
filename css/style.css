@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1em;
+    color: black;
+}
+
+
+
+#banner {
+    background-image: url(../assets/img/music.jpg);
+    z-index: -1;
+    background-size: cover;
+    /* <------ */
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    min-height: 350px;
+    margin-bottom: 5px;
+}
+
+.home-section {
+    display: flex;
+    width: 100%;
+    padding: 20px;
+}
+
+.box-left{
+    width: 70%;
+    height: 100%;
+}
+
+.heading{
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 30px;
+    color: dodgerblue;
+}
+
+.box-right{
+    width: 30%;
+    height: 100%;
+    padding: 12px;
+}
+.list-genre{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 66vw;
+    gap: 12px;
+    height: auto;
+}
+.genre-card{
+    position: relative;
+    max-width: 150px;
+    max-height: 200px;
+    width: 150px;
+    height: 150px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.bg-action, .avatar{
+    position: absolute;
+}
+.avatar:hover, .genre-img:hover{
+    z-index: -10;
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.bg-action:hover, .icon-play:hover{
+    z-index: 5;
+    cursor: pointer;
+}
+
+.bg-action{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 150px;
+}
+
+
+
+.genre-img{
+    width: 150px;
+    height: 150px;
+}
+.genre-name{
+    font-size: 16px;
+    text-transform: capitalize;
+    text-align: justify;
+    width: 100%;
+    color: #000;
+}
+
+
+.bxh{
+    width: 25vw;
+}
+.bxh-item{
+    display: flex;
+    width: 25vw;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
+    height: 70px;
+}
+
+.item-info{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    height: 70px;
+    width: 100%;
+}
+.stt{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.stt.top1{
+    color: red;
+}
+.stt.top2{
+    color: green;
+}
+.stt.top3{
+    color: orange;
+}
+.item-info .title, .item-info .artist{
+    width: 100%;
+}
+.item-info .title{
+    font-size: 20px;
+}
+.item-info .title:hover{
+    color: dodgerblue;
+    cursor: pointer;
+}
+.item-info .artist{
+    font-size: 14px;
+    color: #888888;
+}
+
+
+

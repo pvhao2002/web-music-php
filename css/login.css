@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-login {
+  width: 40%;
+  display: flex;
+  gap: 12px;
+  flex-direction: column;
+}
+
+.form-login label {
+  font-size: 20px;
+  font-weight: 400;
+  color: #000;
+}
+
+.form-login input[type="text"],
+.form-login input[type="password"] {
+  height: 40px;
+  font-size: 16px;
+  padding: 15px;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  border-radius: 15px;
+  border: 0;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-login input[type="text"]:focus,
+.form-login input[type="password"]:focus {
+  outline: none;
+}
+
+input[type="submit"] {
+  background-color: dodgerblue;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 4px;
+}
+
+input[type="submit"]:hover {
+  opacity: 1;
+}
+
+.login-error {
+  color: red;
+}
