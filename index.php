@@ -54,7 +54,6 @@ if (isset($_GET['act'])) {
                         if (strcmp($password, $confirm) != 0) {
                             $error = "Xác nhận mật khẩu không khớp.";
                         } else {
-                            include("service/userDAO.php");
                             $checkDuplicate = checkDuplicateUsername($username);
                             if ($checkDuplicate) {
                                 $error = "Tên đăng nhập đã tồn tại.";
