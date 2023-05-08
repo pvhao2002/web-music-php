@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 22;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #f7f7f7;
+            margin: 2% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .form-modal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .form-modal label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .form-modal input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .form-modal button[type="submit"] {
+            background-color: #008CBA;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .form-modal button[type="submit"]:hover {
+            background-color: #006F8E;
+        }
+
+        .my-playlist {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            overflow-y: auto;
+            max-height: 200px;
+        }
+
+        .my-playlist ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .my-playlist ul li a {
+            text-decoration: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .my-playlist ul li a:hover {
+            color: #008CBA;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="open-modal-btn">Create Playlist</button>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Tạo playlist</h2>
+            <p>Danh sách playlist của tôi:</p>
+            <div class="my-playlist">
+                <ul>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                    <li><a href="">Playlist 1</a></li>
+                </ul>
+            </div>
+            <form action="" method="post" class="form-modal">
+                <label for="playlist-name">Playlist Name:</label>
+                <input type="text" id="playlist-name" name="playlist-name" required>
+                <button type="submit" id="create-playlist-btn">Create</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const openModalBtn = document.getElementById("open-modal-btn");
+        const modal = document.getElementById("modal");
+        const closeModalBtn = document.getElementsByClassName("close")[0];
+        const createPlaylistBtn = document.getElementById("create-playlist-btn");
+
+        openModalBtn.addEventListener("click", function () {
+            modal.style.display = "block";
+        });
+
+        closeModalBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        createPlaylistBtn.addEventListener("click", function (event) {
+            event.preventDefault();
+            const playlistNameInput = document.getElementById("playlist-name");
+            const playlistName = playlistNameInput.value;
+            // Do something with the playlist name, like add it to a database or display it on the page
+            modal.style.display = "none";
+        });
+    </script>
+</body>
+
+</html>

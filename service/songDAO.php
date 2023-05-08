@@ -20,6 +20,15 @@ function getAllSong()
     mysqli_close($link);
     return $result;
 }
+function getAllSongByGenre($genre_id)
+{
+    include("config.php");
+    $query = "SELECT * FROM songs WHERE genre_id = " . $genre_id;
+    $result = mysqli_query($link, $query);
+    mysqli_close($link);
+    return $result;
+}
+
 
 function addSong($title, $artist, $genre_id, $image_url, $audio_url, $rate, $lyric)
 {

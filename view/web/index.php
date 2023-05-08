@@ -34,7 +34,7 @@
                     $list_genre = getAllGenre();
                     while ($row = mysqli_fetch_array($list_genre)) {
                         ?>
-                        <a class="genre-card" href="index.php?act=list-song">
+                        <a class="genre-card" href="index.php?act=list-song&&genre_id=<?php echo $row["genre_id"]; ?>">
                             <div class="bg-action">
                                 <img src="../../assets/img/play1.png" class="icon-play" alt="">
                             </div>

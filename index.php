@@ -6,6 +6,8 @@ include("service/songDAO.php");
 include("service/genreDAO.php");
 include("service/commentDAO.php");
 include("service/playlistDAO.php");
+
+
 if (isset($_GET['act'])) {
     switch ($_GET['act']) {
         case 'login': {
@@ -286,10 +288,18 @@ if (isset($_GET['act'])) {
 
         case 'list-song': {
                 if (isset($_GET["search"]) && isset($_POST['lookup'])) {
+                    $genre_name = "Bài hát tìm kiếm";
                     $title = $_POST["find"];
                     $list_song = searchByName($title);
                 } else {
-                    $list_song = getAllSong();
+                    if (isset($_GET["genre_id"]) && $_GET["genre_id"]) {
+                        $genre_id = $_GET["genre_id"];
+                        $genre_name = getGenre($genre_id)["name"];
+                        $list_song = getAllSongByGenre($genre_id);
+                    } else {
+                        $genre_name = "Tất cả";
+                        $list_song = getAllSong();
+                    }
                 }
                 include("view/web/list.song.php");
                 break;
@@ -311,6 +321,30 @@ if (isset($_GET['act'])) {
                     addComment($song_id, $user_id, $comment);
                 }
                 header('location: index.php?act=song&&id=' . $_GET["song_id"]);
+                break;
+            }
+        case 'play-list': {
+                if (isset($_SESSION["user"])) {
+                    if (isset($_GET["playlist-id"]) && isset($_GET["song-id"])) {
+                        $playlist_id = $_GET["playlist-id"];
+                        $song_id = $_GET["song-id"];
+                        addSong2Playlist($playlist_id, $song_id);
+                    }
+                    $genre_name = "Tất cả";
+                    $list_song = getAllSong();
+                    include("view/web/list.song.php");
+                } else {
+                    include("view/web/login.php");
+                }
+                break;
+            }
+        case 'add-playlist': {
+                if (isset($_POST["add"]) && $_POST["add"]) {
+                    $playlist_name = $_POST["playlist-name"];
+                    $user_id = $_SESSION["user"]["user_id"];
+                    addPlaylist($playlist_name, $user_id);
+                }
+                header('location: index.php?act=list-song');
                 break;
             }
         default:
